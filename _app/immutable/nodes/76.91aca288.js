@@ -1,0 +1,1 @@
+import{S as n,i as r,s as l,q as i,r as c,b as m,H as o,h as p}from"../chunks/index.f2b26511.js";function d(a){let t;return{c(){t=i("Hello world!")},l(e){t=c(e,"Hello world!")},m(e,s){m(e,t,s)},p:o,i:o,o,d(e){e&&p(t)}}}class f extends n{constructor(t){super(),r(this,t,null,d,l,{})}}export{f as component};
