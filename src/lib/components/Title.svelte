@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
 	import { pages } from "$lib/main.svelte";
     import { afterNavigate } from "$app/navigation";
 
@@ -8,6 +7,7 @@
     export let path: string = '';
 
     let page_title: string;
+    
     afterNavigate(() => {
         if (path) {
             page_title = pages.get(path)!;

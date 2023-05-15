@@ -1,9 +1,10 @@
 <script lang="ts">
-    import { afterUpdate, tick } from "svelte";
-    export let path: string;
+    import { afterNavigate } from "$app/navigation";
+    import { tick } from "svelte";
+
     export let theme: string | null;
     export let setTheme: Function;
-
+    
     const handleThemeChange = () => {
         let new_theme: string;
 
@@ -13,24 +14,14 @@
         setTheme(new_theme);
     }
 
-    afterUpdate(async() => {
+    afterNavigate(async() => {
         await tick();
         const navItems = document.querySelectorAll('.top-nav-i');
         navItems.forEach((item) => {
-            path.includes(item.id) ? item.classList.add('active') : item.classList.remove('active');
+            window.location.pathname.includes(item.id) ? item.classList.add('active') : item.classList.remove('active');
         });
-    })
-
-    /* var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            document.querySelector("header")!.style.top = "0";
-        } else {
-            document.querySelector("navbar")!.style.top = "-50px";
-        }
-        prevScrollpos = currentScrollPos;
-    }  */
+        console.log('teste')
+    });
 </script>
 
 <header>
@@ -64,20 +55,19 @@
         </svg>
     </a>
     <div class="top-nav">
-        <a id="artigos" href="/artigos/" class="top-nav-i">Artigos</a>
-        <a id="arquivos" href="/arquivos/" class="top-nav-i">Arquivos</a>
-        <a id="ferramentas" href="/ferramentas/" class="top-nav-i">Ferramentas</a>
-        <a id="comunidade" href="/comunidade/" class="top-nav-i">Comunidade</a>
+        <a id="artigos" href="/artigos" class="top-nav-i">Artigos</a>
+        <a id="arquivos" href="/arquivos" class="top-nav-i">Arquivos</a>
+        <a id="ferramentas" href="/ferramentas" class="top-nav-i">Ferramentas</a>
+        <a id="comunidade" href="/comunidade" class="top-nav-i">Comunidade</a>
 
-        <button id="theme-button" on:click={handleThemeChange}>
+        <button class="theme-button" on:click={handleThemeChange}>
             <svg
             viewBox="0 0 190.5 190.49999"
             version="1.1"
             id="theme"
             class={theme}
             xmlns="http://www.w3.org/2000/svg">
-                <g
-                    id="g472">
+                <g id="g472">
                     <path
                     id="path17429"
                     style="fill:#848484;fill-opacity:0;stroke:currentcolor;stroke-width:26.4354;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
@@ -92,8 +82,6 @@
     </div>
 </header>
 
-<dummy class="active dark-side light-side" style="display: none"></dummy>
-
 <style>
     header {
         background-color: var(--background-ter);
@@ -103,19 +91,17 @@
         justify-content: space-between;
     }
 
+    svg {
+        color: var(--svg-color);
+    }
+    
     .logo {
         margin: auto 2rem;
     }
 
-    svg {
-        color: var(--svg-color);
-        transition: color 0.2s ease-out;
-    }
-    
     #logo {
-        width: 4rem;
+        height: 4rem;
         opacity: .8;
-        transition: opacity .2s ease-in-out;
     }
 
     #logo:hover {
@@ -151,14 +137,14 @@
         font-weight: 700;
     }
 
-    #theme-button {
+    .theme-button {
         background: none;
         border: none;
         margin: 1rem;
     }
 
     #theme {
-        width: 2rem;
+        height: 2rem;
         rotate: 180deg;
     }
 
@@ -172,3 +158,4 @@
         transform: rotateZ(180deg);
     }
 </style>
+

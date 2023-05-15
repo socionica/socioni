@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-pri);
+    color: var(--text-color);
+
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+article * {
+    margin: 0.5rem 0;
+    text-align: justify;
+}
+
+article h1,
+article h2,
+article h3 {
+    color: var(--title-color);
+}
+
+a {
+    color: #007FFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Esquema de cores */
+
+::-webkit-scrollbar {
+    background-color: var(--scrollbar-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+}
+
+:root {
+    --text-color: hsl(0, 0%, 0%);
+    --title-color: hsl(0, 0%, 0%);
+
+    --aux-color: hsl(0, 0%, 64%);
+    --svg-color: hsl(0, 0%, 64%);
+
+    --background-pri: hsl(0, 0%, 100%);
+    --background-sec: hsl(0, 0%, 96%);
+    --background-ter: hsl(0, 0%, 92%);
+    --background-qua: hsl(0, 0%, 88%);
+
+    --scrollbar-color: #d3d3d3;
+    --scrollbar-thumb-color: #a6a6a6;
+}
+
+body.dark {
+    --text-color: hsl(0, 0%, 75%);
+    --title-color: hsl(0, 0%, 88%);
+
+    --svg-color: hsl(0, 0%, 46%);
+
+    --background-pri: hsl(0, 0%, 13%);
+    --background-sec: hsl(0, 0%, 16%);
+    --background-ter: hsl(0, 0%, 19%);
+    --background-qua: hsl(0, 0%, 22%);
+
+    --scrollbar-color: #333;
+    --scrollbar-thumb-color: #777;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: hsl(0, 0%, 75%);
+        --title-color: hsl(0, 0%, 88%);
+
+        --aux-color: hsl(0, 0%, 46%);
+        --svg-color: hsl(0, 0%, 46%);
+
+        --background-pri: hsl(0, 0%, 13%);
+        --background-sec: hsl(0, 0%, 16%);
+        --background-ter: hsl(0, 0%, 19%);
+        --background-qua: hsl(0, 0%, 22%);
+
+        --scrollbar-color: #333;
+        --scrollbar-thumb-color: #777;
+    }
+
+    body.light {
+        --text-color: hsl(0, 0%, 0%);
+        --title-color: hsl(0, 0%, 0%);
+
+        --aux-color: hsl(0, 0%, 64%);
+        --svg-color: hsl(0, 0%, 64%);
+
+        --background-pri: hsl(0, 0%, 100%);
+        --background-sec: hsl(0, 0%, 96%);
+        --background-ter: hsl(0, 0%, 92%);
+        --background-qua: hsl(0, 0%, 88%);
+
+        --scrollbar-color: #d3d3d3;
+        --scrollbar-thumb-color: #a6a6a6;
+    }
+}

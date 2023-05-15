@@ -51,7 +51,7 @@
             
                 // Dicotomias
             ['/arquivos/dicotomias', 'Dicotomias'],
-                ['/arquivos/dicotomias/extrovertido-intuitivo', 'Extrovertido e introvertido'],
+                ['/arquivos/dicotomias/extrovertido-introvertido', 'Extrovertido e introvertido'],
                 ['/arquivos/dicotomias/intuitivo-sensitivo', 'Intuitivo e sensitivo'],
                 ['/arquivos/dicotomias/logico-etico', 'Lógico e ético'],
                 ['/arquivos/dicotomias/racional-irracional', 'Racional e irracional'],
